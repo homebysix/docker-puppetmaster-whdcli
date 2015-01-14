@@ -14,12 +14,13 @@ logger.info('Start script')
 
 logger.debug("Number of arguments: %s ",len(sys.argv))
 logger.info("Hostname: %s ", sys.argv[1])
-certreq = sys.stdin.read()
-logger.debug("CSR: %s", certreq)
 
 if sys.argv[1] is "puppet":
 	logger.info("It's the puppetmaster, of course we approve it.")
 	sys.exit(0)
+
+certreq = sys.stdin.read()
+logger.debug("CSR: %s", certreq)
 
 cmd = ['/usr/bin/openssl', 'req', '-noout', '-text']
 proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
