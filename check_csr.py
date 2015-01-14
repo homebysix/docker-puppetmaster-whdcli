@@ -17,6 +17,10 @@ logger.info("Hostname: %s ", sys.argv[1])
 certreq = sys.stdin.read()
 logger.debug("CSR: %s", certreq)
 
+if sys.argv[1] is "puppet":
+	logger.info("It's the puppetmaster, of course we approve it.")
+	sys.exit(0)
+
 cmd = ['/usr/bin/openssl', 'req', '-noout', '-text']
 proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 (output, err) = proc.communicate(certreq)
@@ -47,4 +51,4 @@ if not w.getAssetBySerial(serial_number):
         sys.exit(1)
 
 logger.info("Found serial number in inventory. Approving.")
-sys.exit(1)
+sys.exit(0)
