@@ -7,7 +7,7 @@ import subprocess
 
 LOG_FILENAME = '/var/log/check_csr.out'
 
-logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
+logging.basicConfig(filename=LOG_FILENAME, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 logger.info('Start script')
