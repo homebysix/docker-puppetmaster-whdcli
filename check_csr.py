@@ -37,8 +37,12 @@ strippedLineList2 = [line.rstrip() for line in strippedLineList]
 
 logger.debug("Stripped list: %s", strippedLineList2)
 
-trusted_attribute1 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.1:")
-
+try:
+	trusted_attribute1 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.1:")
+except:
+	logger.debug("No serial number in CSR. Rejecting CSR."
+	sys.exit(1)
+	
 logger.debug("trusted_attribute1 index: %s", trusted_attribute1)
 
 serial_number = strippedLineList2[trusted_attribute1+1]
