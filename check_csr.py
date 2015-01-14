@@ -18,7 +18,7 @@ certreq = sys.stdin.read()
 logger.debug("CSR: %s", certreq)
 
 if sys.argv[1] is "puppet":
-	logger.info("It's the puppetmaster, of course we approve it."
+	logger.info("It's the puppetmaster, of course we approve it.")
 	sys.exit(0)
 
 cmd = ['/usr/bin/openssl', 'req', '-noout', '-text']
