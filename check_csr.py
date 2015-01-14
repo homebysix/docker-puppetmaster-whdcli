@@ -43,14 +43,14 @@ logger.debug("trusted_attribute1 index: %s", trusted_attribute1)
 
 serial_number = strippedLineList2[trusted_attribute1+1]
 
-logger.info("Serial number: %s", serial_number)   
+logger.info("Serial number: %s", serial_number)	  
 
 # Now we get actual work done
 whd_prefs = whdcli.WHDPrefs("/home/whdcli/com.github.nmcspadden.whd-cli.plist")
 w = whdcli.WHD(whd_prefs, None, None, False)
 if not w.getAssetBySerial(serial_number):
-        logger.info("Serial number not found in inventory.")
-        sys.exit(1)
+	logger.info("Serial number not found in inventory.")
+	sys.exit(1)
 
 logger.info("Found serial number in inventory. Approving.")
 sys.exit(0)
