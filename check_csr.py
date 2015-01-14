@@ -16,7 +16,7 @@ logger.debug("Number of arguments: %s",len(sys.argv))
 hostname = sys.argv[1]
 logger.info("Hostname: %s", hostname)
 
-if hostname is "puppet":
+if hostname == "puppet":
 	logger.info("It's the puppetmaster, of course we approve it.")
 	sys.exit(0)
 
