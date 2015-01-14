@@ -12,9 +12,9 @@ logger = logging.getLogger(__name__)
 
 logger.info('Start script')
 
-logger.debug("Number of arguments: %s ",len(sys.argv))
+logger.debug("Number of arguments: %s",len(sys.argv))
 hostname = sys.argv[1]
-logger.info("Hostname: %s ", hostname)
+logger.info("Hostname: %s", hostname)
 
 if hostname is "puppet":
 	logger.info("It's the puppetmaster, of course we approve it.")
