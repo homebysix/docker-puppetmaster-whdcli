@@ -25,4 +25,4 @@ RUN chown puppet:puppet /var/log/check_csr.out
 
 EXPOSE 8140
 
-ENTRYPOINT [ "/usr/bin/puppet", "master", "--no-daemonize", "--verbose", "--debug" ]
+ENTRYPOINT [ "/usr/bin/puppet", "master", "--no-daemonize", "--verbose" ]
