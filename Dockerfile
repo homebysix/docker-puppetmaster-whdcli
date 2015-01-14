@@ -19,6 +19,7 @@ WORKDIR /home/whdcli
 RUN python /home/whdcli/setup.py install
 ADD puppet.conf /etc/puppet/puppet.conf
 ADD com.github.nmcspadden.whd-cli.plist /home/whdcli/com.github.nmcspadden.whd-cli.plist
+ADD check_csr.py /opt/puppet/check_csr.py
 
 VOLUME ["/opt/puppet"]
 
