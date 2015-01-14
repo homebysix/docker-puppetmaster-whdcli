@@ -7,7 +7,7 @@ import subprocess
 
 LOG_FILENAME = '/var/log/check_csr.out'
 
-logging.basicConfig(filename=LOG_FILENAME, level=logging.INFO)
+logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 logger.info('Start script')
@@ -40,7 +40,7 @@ logger.debug("Stripped list: %s", strippedLineList2)
 try:
 	trusted_attribute1 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.1:")
 except:
-	logger.debug("No serial number in CSR. Rejecting CSR."
+	logger.info("No serial number in CSR. Rejecting CSR.")
 	sys.exit(1)
 	
 logger.debug("trusted_attribute1 index: %s", trusted_attribute1)
