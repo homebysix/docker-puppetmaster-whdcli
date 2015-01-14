@@ -20,7 +20,9 @@ RUN python /home/whdcli/setup.py install
 ADD puppet.conf /etc/puppet/puppet.conf
 ADD com.github.nmcspadden.whd-cli.plist /home/whdcli/com.github.nmcspadden.whd-cli.plist
 ADD check_csr.py /etc/puppet/check_csr.py
+RUN touch /var/log/check_csr.out
+RUN chown puppet:puppet /var/log/check_csr.out
 
 EXPOSE 8140
 
-ENTRYPOINT [ "/usr/bin/puppet", "master", "--no-daemonize", "--verbose" ]
+ENTRYPOINT [ "/usr/bin/puppet", "master", "--no-daemonize", "--verbose", "--debug" ]
