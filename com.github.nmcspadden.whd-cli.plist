@@ -5,6 +5,6 @@
         <key>apikey</key>
         <string>apikey_from_webhelpdesk</string>
         <key>whd_url</key>
-        <string>https://webhelpdesk.domain.org:8443</string>
+        <string>https://whd:8081</string>
 </dict>
 </plist>

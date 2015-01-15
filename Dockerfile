@@ -25,11 +25,11 @@ RUN chown puppet:puppet /var/log/check_csr.out
 
 VOLUME ["/opt/puppet"]
 
-RUN cp -Rf /etc/puppet/* /opt/puppet/
+RUN cp -Rfv /etc/puppet/ /opt/
 
 VOLUME ["/opt/varpuppet/lib/puppet"]
 
-RUN cp -Rf /var/lib/puppet/* /opt/varpuppet/lib/puppet/
+RUN cp -Rfv /var/lib/puppet/ /opt/varpuppet/lib/
 
 EXPOSE 8140
 
