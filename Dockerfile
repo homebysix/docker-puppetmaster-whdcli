@@ -20,6 +20,15 @@ RUN python /home/whdcli/setup.py install
 ADD puppet.conf /etc/puppet/puppet.conf
 ADD com.github.nmcspadden.whd-cli.plist /home/whdcli/com.github.nmcspadden.whd-cli.plist
 ADD check_csr.py /etc/puppet/check_csr.py
+RUN chown puppet:puppet /etc/puppet/check_csr.py
+
+VOLUME ["/opt/puppet"]
+
+RUN cp -rf /etc/puppet/* /opt/puppet/
+
+VOLUME ["/opt/varpuppet/lib/puppet"]
+
+RUN cp -rf /var/lib/puppet/* /opt/varpuppet/lib/puppet/
 
 EXPOSE 8140
 
