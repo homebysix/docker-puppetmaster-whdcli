@@ -61,7 +61,7 @@ logger.info("Virtual fact: %s", physical_fact)
 if physical_fact == "virtual":
 	logger.info("Virtual machine gets autosigned.")
 	sys.exit(0)
-else if physical_fact == "docker":
+elif physical_fact == "docker":
 	logger.info("Docker container gets autosigned.")
 	sys.exit(0)
 
