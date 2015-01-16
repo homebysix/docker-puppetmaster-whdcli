@@ -49,7 +49,7 @@ serial_number = strippedLineList2[trusted_attribute1+1]
 logger.info("Serial number: %s", serial_number)	  
 
 try:
-	trusted_attribute2 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.2")
+	trusted_attribute2 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.2:")
 except:
 	logger.info("No virtual fact in CSR. Rejecting CSR.")
 	sys.exit(1)
