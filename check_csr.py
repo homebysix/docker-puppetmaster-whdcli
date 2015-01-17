@@ -46,8 +46,24 @@ except:
 logger.debug("trusted_attribute1 index: %s", trusted_attribute1)
 
 serial_number = strippedLineList2[trusted_attribute1+1]
-
 logger.info("Serial number: %s", serial_number)	  
+
+try:
+	trusted_attribute2 = strippedLineList2.index("1.3.6.1.4.1.34380.1.2.1.2:")
+except:
+	logger.info("No virtual fact in CSR. Rejecting CSR.")
+	sys.exit(1)
+
+physical_fact = strippedLineList2[trusted_attribute2+1]
+
+logger.info("Virtual fact: %s", physical_fact)
+
+if physical_fact == "virtual":
+	logger.info("Virtual machine gets autosigned.")
+	sys.exit(0)
+elif physical_fact == "docker":
+	logger.info("Docker container gets autosigned.")
+	sys.exit(0)
 
 # Now we get actual work done
 whd_prefs = whdcli.WHDPrefs("/home/whdcli/com.github.nmcspadden.whd-cli.plist")
