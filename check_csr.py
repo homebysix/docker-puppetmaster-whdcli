@@ -58,7 +58,7 @@ physical_fact = strippedLineList2[trusted_attribute2+1]
 
 logger.info("Virtual fact: %s", physical_fact)
 
-if physical_fact == "virtual":
+if physical_fact == "virtual" or physical_fact == "vmware":
 	logger.info("Virtual machine gets autosigned.")
 	sys.exit(0)
 elif physical_fact == "docker":
