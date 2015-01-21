@@ -15,7 +15,7 @@ To use this container:
 2.	You'll need to use WebHelpDesk to [generate an API key](http://www.solarwinds.com/documentation/webhelpdesk/docs/whd_api_12.1.0/web%20help%20desk%20api.html#auth-tech-api-key) first for an account with permissions to read and edit all assets.
 
 3.	Copy and paste that API key into com.github.nmcspadden.whd-cli.plist. You can obtain the plist easily with curl:  
-	`curl -O https://raw.githubusercontent.com/macadmins/docker-puppetmaster-whdcli/master/com.github.nmcspadden.whd-cli.plist`
+	`curl -O https://raw.githubusercontent.com/macadmins/puppetmaster-whdcli/master/com.github.nmcspadden.whd-cli.plist`
 4.	For this example, I'm storing it on the Docker host in /home/nmcspadden/com.github.nmcspadden.whd-cli.plist.  You can also fork this repo and the Dockerfile and build your own image with a pre-configured plist.
 5.	Create a data-only container to store all Puppet dynamic and fixed data:  
 	`docker run -d --name puppet-data --entrypoint /bin/echo macadmins/docker-puppetmaster-whdcli Data-only container for puppetmaster`  
