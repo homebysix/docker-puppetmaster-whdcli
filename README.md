@@ -18,7 +18,7 @@ To use this container:
 	`curl -O https://raw.githubusercontent.com/macadmins/puppetmaster-whdcli/master/com.github.nmcspadden.whd-cli.plist`
 4.	For this example, I'm storing it on the Docker host in /home/nmcspadden/com.github.nmcspadden.whd-cli.plist.  You can also fork this repo and the Dockerfile and build your own image with a pre-configured plist.
 5.	Create a data-only container to store all Puppet dynamic and fixed data:  
-	`docker run -d --name puppet-data --entrypoint /bin/echo macadmins/docker-puppetmaster-whdcli Data-only container for puppetmaster`  
+	`docker run -d --name puppet-data --entrypoint /bin/echo macadmins/puppetmaster-whdcli Data-only container for puppetmaster`  
 	This data-only container allows you to spin up & down and destroy the puppetmaster containers freely, with no loss of certificate data - all of that is stored inside puppet-data instead, which doesn't take up any system resources because it's not a running container.
 
 
