@@ -1,13 +1,7 @@
-FROM centos:centos6
+FROM macadmins/puppetmaster
 
 MAINTAINER nmcspadden@gmail.com
 
-ENV PUPPET_VERSION 3.7.3
-
-RUN rpm --import https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs && rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-RUN yum install -y yum-utils && yum-config-manager --enable centosplus >& /dev/null
-RUN yum install -y puppet-$PUPPET_VERSION
-RUN yum install -y puppet-server-$PUPPET_VERSION
 RUN yum install -y git
 RUN yum install -y python-setuptools
 RUN yum clean all
@@ -23,14 +17,5 @@ ADD check_csr.py /etc/puppet/check_csr.py
 RUN touch /var/log/check_csr.out
 RUN chown puppet:puppet /var/log/check_csr.out
 
-VOLUME ["/opt/puppet"]
-
 RUN cp -Rfv /etc/puppet/ /opt/
-
-VOLUME ["/opt/varpuppet/lib/puppet"]
-
 RUN cp -Rfv /var/lib/puppet/ /opt/varpuppet/lib/
-
-EXPOSE 8140
-
-ENTRYPOINT [ "/usr/bin/puppet", "master", "--no-daemonize", "--verbose" ]
