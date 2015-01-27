@@ -3,7 +3,7 @@ FROM macadmins/puppetmaster
 MAINTAINER nmcspadden@gmail.com
 
 RUN yum install -y python-setuptools && yum clean all
-ADD clone https://github.com/kennethreitz/requests/tarball/master /home/requests/master.tar.gz
+ADD https://github.com/kennethreitz/requests/tarball/master /home/requests/master.tar.gz
 RUN tar -zxvf /home/requests/master.tar.gz --strip-components=1 && rm /home/requests/master.tar.gz
 WORKDIR /home/requests
 RUN python /home/requests/setup.py install
